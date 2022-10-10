@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1665400636 source:d:\3 matematyka grafiki komputerowej\z1\main.cpp
+	<iostream>
+	"Vector.h"
+
+1665400809 source:d:\3 matematyka grafiki komputerowej\z1\src\vector.cpp
+	"Vector.h"
+
+1665400068 d:\3 matematyka grafiki komputerowej\z1\include\vector.h
+	<string>
+	<cmath>
+	<iostream>
+
+1665412138 source:c:\users\agata\documents\github\matma\z1\main.cpp
+	<iostream>
+	"Vector.h"
+	<math.h>
+
+1665400068 c:\users\agata\documents\github\matma\z1\include\vector.h
+	<string>
+	<cmath>
+	<iostream>
+
+1665400809 source:c:\users\agata\documents\github\matma\z1\src\vector.cpp
+	"Vector.h"
+
