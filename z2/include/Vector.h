@@ -1,0 +1,49 @@
+#ifndef VECTOR_H
+#define VECTOR_H
+#define _USE_MATH_DEFINES
+
+#include <string>
+#include <math.h>
+#include <iostream>
+
+class Vector {
+public:
+	float x, y, z;
+
+	Vector();
+
+	Vector(float x, float y, float z);
+
+	~Vector();
+
+	Vector(const Vector &v);
+	friend std::ostream& operator<<(std::ostream& stream, const Vector& v);
+
+	// dodawanie i odejmowanie wektorów
+	Vector operator+(const Vector& v) const;
+
+	Vector operator-(const Vector& v) const;
+
+	// mnożenie/dzielnie
+	Vector operator/(const float& f) const;
+
+	Vector operator*(const float& k) const;
+
+	// długość
+	float length() const;
+
+	// normalizacja
+	Vector normalize() const;
+
+	// mnożenie wektorowe
+	Vector dot(const Vector v) const;
+
+	// mnożenie skalarne
+	float dotProduct(const Vector v);
+
+	Vector cross(const Vector v);
+
+
+};
+
+#endif // VECTOR_H
