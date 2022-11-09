@@ -1,7 +1,4 @@
 # ninja log v5
-8	336	6897002628830799	CMakeFiles/Matma.dir/main.cpp.obj	dd5c05b6c666afa0
-348	488	6897002630291184	Matma.exe	50f59c77011860db
-0	348	6897002628940879	CMakeFiles/Matma.dir/src/Vector.cpp.obj	341301b1436f22b0
 3	338	6897003811629180	CMakeFiles/Matma.dir/main.cpp.obj	b1c31d2e97cbf38e
-11	339	6897003811639175	CMakeFiles/Matma.dir/src/Vector.cpp.obj	d24ecf7e54d009e
 340	451	6897003812709415	Matma.exe	50f59c77011860db
+11	339	6897003811639175	CMakeFiles/Matma.dir/src/Vector.cpp.obj	d24ecf7e54d009e
