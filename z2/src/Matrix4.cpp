@@ -63,5 +63,105 @@ Matrix4 Matrix4::operator/(const float f) const {
 }
 
 Matrix4 Matrix4::operator*(const Matrix4& v) const {
-    //mnozenie macierzy
+    if(elements[12]==0.0f && elements[13] == 0.0f
+    && elements[14] == 0.0f && elements[15]==0.0f) {
+        return Matrix4(elements[0]*v.elements[0] + elements[1]*v.elements[4]+elements[2]*v.elements[8]+elements[3]*v.elements[12], //1 rzad
+                       elements[0]*v.elements[1] + elements[1]*v.elements[5]+elements[2]*v.elements[9]+elements[3]*v.elements[13],
+                       elements[0]*v.elements[2] + elements[1]*v.elements[6]+elements[2]*v.elements[10]+elements[3]*v.elements[14],
+                       elements[0]*v.elements[3] + elements[1]*v.elements[7]+elements[2]*v.elements[11]+elements[3]*v.elements[15],
+
+                       elements[4]*v.elements[0] + elements[5]*v.elements[4]+elements[6]*v.elements[8]+elements[7]*v.elements[12], //2 rzad
+                       elements[4]*v.elements[1] + elements[5]*v.elements[5]+elements[6]*v.elements[9]+elements[7]*v.elements[13],
+                       elements[4]*v.elements[2] + elements[5]*v.elements[6]+elements[6]*v.elements[10]+elements[7]*v.elements[14],
+                       elements[4]*v.elements[3] + elements[5]*v.elements[7]+elements[6]*v.elements[11]+elements[7]*v.elements[15],
+
+                       elements[8]*v.elements[0] + elements[9]*v.elements[4]+elements[10]*v.elements[8]+elements[11]*v.elements[12], //3 rzad
+                       elements[8]*v.elements[1] + elements[9]*v.elements[5]+elements[10]*v.elements[9]+elements[11]*v.elements[13],
+                       elements[8]*v.elements[2] + elements[9]*v.elements[6]+elements[10]*v.elements[10]+elements[11]*v.elements[14],
+                       elements[8]*v.elements[3] + elements[9]*v.elements[7]+elements[10]*v.elements[11]+elements[11]*v.elements[15],
+
+                       v.elements[12], //4 rzad
+                       v.elements[13],
+                       v.elements[14],
+                       v.elements[15]);
+    } else {
+        return Matrix4(elements[0]*v.elements[0] +  elements[1] * v.elements[4]  + elements[2] * v.elements[8]+elements[3]*v.elements[12], //1 rzad
+                       elements[0]*v.elements[1] +  elements[1] * v.elements[5]  + elements[2] * v.elements[9]+elements[3]*v.elements[13],
+                       elements[0]*v.elements[2] +  elements[1] * v.elements[6]  + elements[2] * v.elements[10]+elements[3]*v.elements[14],
+                       elements[0]*v.elements[3] +  elements[1] * v.elements[7]  + elements[2] * v.elements[11]+elements[3]*v.elements[15],
+
+                       elements[4]*v.elements[0] +  elements[5] * v.elements[4]  + elements[6] * v.elements[8]+elements[7]*v.elements[12], //2 rzad
+                       elements[4]*v.elements[1] +  elements[5] * v.elements[5]  + elements[6] * v.elements[9]+elements[7]*v.elements[13],
+                       elements[4]*v.elements[2] +  elements[5] * v.elements[6]  + elements[6] * v.elements[10]+elements[7]*v.elements[14],
+                       elements[4]*v.elements[3] +  elements[5] * v.elements[7]  + elements[6] * v.elements[11]+elements[7]*v.elements[15],
+
+                       elements[8]*v.elements[0] +  elements[9] * v.elements[4]  + elements[10] * v.elements[8]+elements[11]*v.elements[12], //3 rzad
+                       elements[8]*v.elements[1] +  elements[9] * v.elements[5]  + elements[10] * v.elements[9]+elements[11]*v.elements[13],
+                       elements[8]*v.elements[2] +  elements[9] * v.elements[6]  + elements[10] * v.elements[10]+elements[11]*v.elements[14],
+                       elements[8]*v.elements[3] +  elements[9] * v.elements[7]  + elements[10] * v.elements[11]+elements[11]*v.elements[15],
+
+                       elements[12]*v.elements[0] + elements[13] * v.elements[4] + elements[14] * v.elements[8]+elements[15]*v.elements[12], //4 rzad
+                       elements[12]*v.elements[1] + elements[13] * v.elements[5] + elements[14] * v.elements[9]+elements[15]*v.elements[13],
+                       elements[12]*v.elements[2] + elements[13] * v.elements[6] + elements[14] * v.elements[10]+elements[15]*v.elements[14],
+                       elements[12]*v.elements[3] + elements[13] * v.elements[7] + elements[14] * v.elements[11]+elements[15]*v.elements[15]);
+    }
+}
+
+void Matrix4::LoadIdentity() {
+    memset(elements, 0, 16*sizeof(float));
+    elements[0] = 1.0f;
+    elements[5] = 1.0f;
+    elements[10] = 1.0f;
+    elements[15] = 1.0f;
+}
+
+void Matrix4::invertMatrix() {
+
+}
+
+Matrix4 Matrix4::getInverseOfMatrix(const Matrix4& v) const {
+
+}
+
+Matrix4 Matrix4::getTransposeOfMatrix(const Matrix4 v) const {
+
+}
+
+void Matrix4::transposeMatrix() {
+
+}
+
+void Matrix4::setTranslationPart(const Vector& translation) {
+    elements[3] = translation.x;
+    elements[7] = translation.y;
+    elements[11] = translation.z;
+}
+
+void Matrix4::setScalePart(const Vector& scale) {
+    elements[0] = scale.x;
+    elements[5] = scale.y;
+    elements[10] = scale.z;
+    elements[15] = 1;
+}
+void Matrix4::setScalePartUniform(const float scaleFactor) {
+    elements[0] = scaleFactor;
+    elements[5] = scaleFactor;
+    elements[10] = scaleFactor;
+    elements[15] = 1;
+}
+
+void Matrix4::setRotationAxis(const double angle) {
+
+}
+
+void Matrix4::setRotationX(const double angle) {
+
+}
+
+void Matrix4::setRotationY(const double angle) {
+
+}
+
+void Matrix4::setRotationZ(const double angle) {
+
 }

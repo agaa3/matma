@@ -2,3 +2,6 @@
 3	338	6897003811629180	CMakeFiles/Matma.dir/main.cpp.obj	b1c31d2e97cbf38e
 340	451	6897003812709415	Matma.exe	50f59c77011860db
 11	339	6897003811639175	CMakeFiles/Matma.dir/src/Vector.cpp.obj	d24ecf7e54d009e
+3	332	6897034432734289	CMakeFiles/Matma.dir/src/Vector.cpp.obj	d24ecf7e54d009e
+7	355	6897034432959372	CMakeFiles/Matma.dir/src/Matrix4.cpp.obj	fa6e27120524232e
+355	480	6897034434169649	Matma.exe	3a4d2e715eff70a9
