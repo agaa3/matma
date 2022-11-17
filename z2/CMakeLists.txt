@@ -7,4 +7,4 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/src
 )
 
-add_executable(Matma main.cpp src/Vector.cpp include/Vector.h src/Matrix4.cpp include/Matrix4.h)
+add_executable(Matma main.cpp src/Vector.cpp include/Vector.h src/Matrix4.cpp include/Matrix4.h src/Vector4.cpp include/Vector4.h)

@@ -1,5 +1,4 @@
 #include "Vector.h"
-#include "../include/Vector.h"
 
 
 Vector::Vector() {
@@ -100,4 +99,3 @@ std::ostream& operator<<(std::ostream& stream, const Vector& v) {
 	stream << "[ " << v.x << ", " << v.y << ", " << v.z << "]";
 	return stream;
 }
-
