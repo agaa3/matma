@@ -4,13 +4,13 @@
 
 int main() {
 	// 1 Dodawanie
-	float tmp[4][4] = {{1, 2, 3, 5},
-	                 {3, 4.5, 9.8, 0.1},
-	                 {1, 1, 1, 1},
+	float tmp[4][4] = {{7, 5, -5, 1},
+	                 {-5, 3, 7, 15},
+	                 {1, -9, 3, 7},
 	                 {0, 0, 0, 0}};
 	Matrix4 m1 = Matrix4::makeIdentity();
 	Matrix4 m2(tmp);
-	Matrix4 m3(m2 + m1 + m2 / 5);
+	Matrix4 m3(m2 + m1 / 2);
 
 	float tA[16] = {1, 2, 3, 3, 3, 3, 3, 3, 2, 2, 1, 1, 1, 1, 1, 1};
 	Matrix4 A(tA);
@@ -21,7 +21,7 @@ int main() {
 		<< "m1:\n" << m1 << "m2:\n" << m2 << "Result: m1 + m2\n" << m1 + m2 << "\n\n"
 		<< "m1:\n" << m1 << "m2:\n" << m2 << "Result: m1 - m2\n" << m1 - m2 << "\n\n"
 		<< "m2:\n" << m2 << "Result: m2 * 2\n" << m2 * 2 << "\n\n"
-		<< "m3:\n" << m3 << "Result: m3 / 4\n" << m3 / 4 << "\n\n"
+		<< "m3:\n" << m3 << "Result: m3 / 2\n" << m3 / 2 << "\n\n"
 		<< "A:\n" << A << "B:\n" << B
 			<< "Result: A * B\n" << A * B << "\n"
 			<< "Result: B * A\n" << B * A << "\n\n"
@@ -30,10 +30,10 @@ int main() {
 		<< "B:\n" << B << "det(B): " << B.det() << "\n\n";
 
 	Matrix4 m11 = Matrix4::makeIdentity();
-	m11.setTranslationPart(Vector(1, 1.8, -9));
+	m11.setTranslationPart(Vector(1, 2, 3));
 
 	Matrix4 m12 = Matrix4::makeIdentity();
-	m12.setScalePart(Vector(-3, 2.1, 7));
+	m12.setScalePart(Vector(-3, 2, 1));
 
 	Matrix4 m13 = Matrix4::makeIdentity();
 	m13.setScalePartUniform(3);
@@ -48,10 +48,10 @@ int main() {
 	m23.setRotationZ(90);
 
 	Matrix4 m33 = Matrix4::makeIdentity();
-	Vector v = Vector(0.8f, 0.3f, -4.1f);
+	Vector v = Vector(1.0f, 2.0f, -1.0f);
 	m33.setRotationAxis(90, v);
 
-	std::cout << "Operacje zrealizowane na macierzy jednostowej: " << m1
+	std::cout << "Operacje zrealizowane na macierzy jednostowej:\n " << m1
 		<< "Translation Part:\n" << m11 << "\n"
 		<< "Scale Part:\n" << m12 << "\n"
 		<< "Scale Part Uniform:\n" << m13 << "\n"
