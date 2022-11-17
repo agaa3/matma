@@ -1,7 +1,6 @@
 #include <cstring>
 #include <stdexcept>
 #include "Matrix4.h"
-#include "../include/Matrix4.h"
 
 
 Matrix4::Matrix4(float a11, float a12, float a13, float a14,
@@ -109,12 +108,12 @@ void Matrix4::setScalePartUniform(const float scaleFactor) {
 }
 
 void Matrix4::setRotationAxis(const double angle, const Vector& axis) {
-	this->makeOne();
+	Vector u = axis.normalize();
 	float sinAngle = (float)sin(M_PI * angle / 180);
 	float cosAngle = (float)cos(M_PI * angle / 180);
 	float oneMinus = 1.0f - cosAngle;
 
-	Vector u = axis.normalize();
+	this->makeOne();
 
 	elements[0][0] = u.x * u.x + cosAngle*(1 - (u.x*u.x));
 	elements[1][0] = u.x * u.y * oneMinus - sinAngle*u.z;
@@ -132,30 +131,29 @@ void Matrix4::setRotationAxis(const double angle, const Vector& axis) {
 
 void Matrix4::setRotationX(const double angle) {
 	this->makeOne();
+	elements[1][1] = (float)cos(M_PI*angle/180.0f);
+	elements[1][2] = (float)sin(M_PI*angle/180.0f);
 
-	elements[1][1] = (float)cos(M_PI*angle/180);
-	elements[1][2] = (float)sin(M_PI*angle/180);
-
-	elements[2][1] = - elements[1][1];
-	elements[2][2] = elements[1][2];
+	elements[2][1] = - elements[1][2];
+	elements[2][2] = elements[1][1];
 }
 
 void Matrix4::setRotationY(const double angle) {
 	this->makeOne();
-	elements[0][0] = (float)cos(M_PI*angle/180);
-	elements[0][2] = (float)sin(M_PI*angle/180);
+	elements[0][0] = (float)cos(M_PI*angle/180.0f);
+	elements[0][2] = (float)sin(M_PI*angle/180.0f);
 
-	elements[2][0] = - elements[0][0];
-	elements[2][2] = elements[0][2];
+	elements[2][0] = - elements[0][2];
+	elements[2][2] = elements[0][0];
 }
 
 void Matrix4::setRotationZ(const double angle) {
 	this->makeOne();
-	elements[0][0] = (float)cos(M_PI*angle/180);
-	elements[0][1] = (float)sin(M_PI*angle/180);
+	elements[0][0] = (float)cos(M_PI*angle/180.0f);
+	elements[0][1] = (float)sin(M_PI*angle/180.0f);
 
-	elements[1][0] = - elements[0][0];
-	elements[1][1] = elements[0][1];
+	elements[1][0] = - elements[0][1];
+	elements[1][1] = elements[0][0];
 }
 
 Matrix4 Matrix4::inverseMatrix(const Matrix4 &v) {
