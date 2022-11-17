@@ -86,12 +86,14 @@ Matrix4 Matrix4::operator*(const Matrix4 &v) const {
 }
 
 void Matrix4::setTranslationPart(const Vector &translation) {
-	elements[0][3] = translation.x;
-	elements[1][3] = translation.y;
-	elements[2][3] = translation.z;
+	makeOne();
+	elements[3][0] = translation.x;
+	elements[3][1] = translation.y;
+	elements[3][2] = translation.z;
 }
 
 void Matrix4::setScalePart(const Vector &scale) {
+	makeOne();
 	elements[0][0] = scale.x;
 	elements[1][1] = scale.y;
 	elements[2][2] = scale.z;
@@ -99,6 +101,7 @@ void Matrix4::setScalePart(const Vector &scale) {
 }
 
 void Matrix4::setScalePartUniform(const float scaleFactor) {
+	makeOne();
 	elements[0][0] = scaleFactor;
 	elements[1][1] = scaleFactor;
 	elements[2][2] = scaleFactor;

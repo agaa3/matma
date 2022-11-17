@@ -21,7 +21,7 @@ int main() {
 		<< "m1:\n" << m1 << "m2:\n" << m2 << "Result: m1 + m2\n" << m1 + m2 << "\n\n"
 		<< "m1:\n" << m1 << "m2:\n" << m2 << "Result: m1 - m2\n" << m1 - m2 << "\n\n"
 		<< "m2:\n" << m2 << "Result: m2 * 2\n" << m2 * 2 << "\n\n"
-		<< "m3:\n" << m3 << "Result: m3 / 4\n" << m3 / 3 << "\n\n"
+		<< "m3:\n" << m3 << "Result: m3 / 4\n" << m3 / 4 << "\n\n"
 		<< "A:\n" << A << "B:\n" << B
 			<< "Result: A * B\n" << A * B << "\n"
 			<< "Result: B * A\n" << B * A << "\n\n"
@@ -70,13 +70,10 @@ int main() {
 	Matrix4 przeksztalcenie = Matrix4::makeIdentity();
 	przeksztalcenie.setRotationY(90);
 
-	// nie wiem który powinien być matematycznie
 	std::cout
 		<< "Obrot wektora [1, 0, 0, 1] aka:\n"
 		<< obrot << "\nO 90 stopni wokol osi Y:\n"
-		<< przeksztalcenie * obrot  << "\n"
-		<< obrot * przeksztalcenie  << "\n\n";
-
+		<< przeksztalcenie * obrot  << "\n";
 
 	return 0;
 }
