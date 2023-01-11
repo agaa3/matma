@@ -69,7 +69,7 @@ float Vector::length() const {
 
 Vector Vector::normalize() const {
 	float n = this->length();
-	if (n == 0)
+ 	if (n == 0)
 		throw std::invalid_argument("Dzielenie przez 0");
 	return this->operator/(n);
 }

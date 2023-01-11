@@ -24,8 +24,8 @@ public:
     void rotateY(float angle);
     void rotateX(float angle);
     void rotateZ(float angle);
+    void rotateAxis(float angle, Vector axis);
 
-    Vector right = Vector(0, 0, 0);
 
 
 };
